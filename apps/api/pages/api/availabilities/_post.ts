@@ -85,6 +85,7 @@ async function postHandler(req: NextApiRequest) {
   };
 }
 
+//This function essentially checks whether a user has permission to add availabilities to a schedule based on whether they are an administrator and whether the schedule exists and is associated with the user. If not, it raises an error to prevent unauthorized access.
 async function checkPermissions(req: NextApiRequest) {
   const { userId, prisma, isAdmin } = req;
   if (isAdmin) return;
